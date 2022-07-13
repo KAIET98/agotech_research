@@ -27,7 +27,7 @@ The general project structure MUST have:
 La base de datos que estamos corriendo es una micro que esta alojada en GCP, andamos con la version gratuita del programa por lo que la licencia expira de tanto en tanto, dicho esto, los valores de nuestro host hay que cambiarlos de tanto en tanto.
 
 ```
-host = '35.241.159.127' 
+host =  '34.175.164.167'
 user = 'admin'
 password = '12345678'
 database = 'GET_DATABASE'
@@ -77,51 +77,6 @@ También podemos guardar los paquetes en un fichero txt
 ```
 pip freeze > requirements.txt
 ```
-
-## Instalacion de Requirements.txt
-
-Si queremos instalar un conjunto de paquetes de un requirements: 
-
-```
-python -m pip install -r requirements.txt
-```
-
-# VISUAL CODE STUDIO, como trabajar
-
-## Clonar el respositorio de github
-
-Primero de todo clonamos aquel repositorio de github que queramos trabajar, y nos situamos en la rama correspondiente: 
-
-```
-git clone <url>
-```
-
-Y seleccionamos la rama correspondiente
-
-```
-git checkout <nombre_de_otra_rama>
-```
-
-Verificamos el cambio: 
-
-
-```
-git branch
-```
-
-## Entornos de trabajo. 
-
-Se supone que ya hemos instalado el entorno que trabaja nuestro equipo. Si no lo hemos hecho, nos posicionamos en la carpeta donde hemos clonado el repositorio via Terminal y ponemos
-```
-pip install -r requirements.txt
-```
-Con esto tendremos el entorno clonado. 
-
-Una vez que tengamos el entorno clonado, tendremos que activar el entorno vía terminal, es decir, nos posicionamos en el lugar donde nos ha clonado el virutla environment y hacemos un: 
-```
-source prueba1/bin/activate
-```
-Luego, tendremos que indicarle a mano a visual studio que seleccione el interprete adecuado. Este interprete tiene que ser el archivo "python" que se encuentra dentro de "bin". 
 
 # Lógica de negocio gráfica
 
