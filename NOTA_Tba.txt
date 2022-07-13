@@ -1,0 +1,15 @@
+Buenos días,
+os he creado un usuario para las bases de datos.
+servidor: www.tbagrosensor.com
+usuario: tecfrut_eae
+contraseña: .jvcUtJ?;=
+BD: tecfrut_ccl
+Es una base de datos mysql.
+Ahí tenéis los datos en una tabla por día "historico_graficas_fecha". Tenéis las 6 humedades de suelo en var1-var6. 
+Temperatura en var8, humedad relativa en var9.
+Todos estos valores hay que dividirlos por 100.
+Var12 es la velocidad de viento, es un contador por lo que lo importante es la diferencia da cada valor con la anterior lectura.
+var13 es igual pero para la lluvia.
+var14 es la dirección de viento.
+Confirmadme si podéis acceder y os paso las fórmulas para convertir éstos valores.
+Un saludo.

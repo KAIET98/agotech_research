@@ -1,0 +1,7 @@
+
+CREATE TABLE HUMEDAD_prueba(
+id_humedad  INT  PRIMARY KEY AUTO_INCREMENT, 
+Humedad_relativa int, 
+DIA DATE NOT NULL, 
+HORA TIME
+);

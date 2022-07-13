@@ -1,0 +1,115 @@
+import sqlalchemy
+import pymysql
+import urllib3
+import pandas as pd
+urllib3.disable_warnings(urllib3.exceptions.InsecureRequestWarning)
+
+
+
+#------- DEFINIMOS LAS FUNCIONES AUXILIARAES
+
+
+
+
+#--------------------------------------- NUESTRA BASE DE DATOS EN GCP ---------------
+
+'''
+Especificamos nuestros datos tal y como hemos hecho más de una vez
+
+'''
+host = '34.79.75.171'
+db = 'GET_DATABASE'
+user = 'admin'
+pasw = '12345678'
+
+
+'''
+Nos conectamos a la base de datos
+'''
+logger = logging.getLogger()
+logger.setLevel(logging.INFO)
+
+try:
+    conn = pymysql.connect(host=host, user=user, passwd=pasw, db=db, connect_timeout=5)
+except pymysql.MySQLError as e:
+    logger.error("ERROR: Unexpected error: Could not connect to MySQL instance.")
+    logger.error(e)
+    sys.exit()
+
+logger.info("SUCCESS: Connection to RDS MySQL instance succeeded")
+
+
+
+'''
+Importmos la funcion de insert_into tal y comohaciamos en 'aplicacion_isnert_into.py' en la carpeta de SQL
+'''
+
+def insert_into(data, arrival_df):
+
+    #establecemos la conexión a la base de datos
+    connection = pymysql.connect(host=host,
+                             user=user,
+                             password=pasw,
+                             db=db)
+
+    cursor = connection.cursor()
+
+
+    #especificamos cual es el nombre de la tabla destino
+
+    nombre_tabla = arrival_df
+
+    
+    # creating column list for insertion
+    cols = "`,`".join([str(i) for i in data.columns.tolist()])
+    cols = cols.strip()
+    # Insert DataFrame recrds one by one.
+    for i,row in data.iterrows():
+        sql = "INSERT INTO `{}` (`".format(nombre_tabla) +cols + "`) VALUES (" + "%s,"*(len(row)-1) + "%s)"
+
+            
+        cursor.execute(sql, tuple(row))
+
+            # the connection is not autocommitted by default, so we must commit to save our changes
+        connection.commit()
+
+'''
+Tambien improtamos dos funciones que nos ayudaran a dinamizar el codigo, como dummy, nada serio
+'''
+
+def run_query(q):
+    with pymysql.connect(host=host,
+                             user=user,
+                             password=pasw,
+                             db=db) as conn:
+        return pd.read_sql(q, conn)
+
+
+# ------- LAS VARIABLES DE LA BASE DE DATOS
+
+
+
+
+'''
+Lanzamos una query inicial para tener unos datos con los que trabajar como dumy
+'''
+
+tabla_de_interes = 'DATOS'
+tu_nombre = 'ALBERTO'
+edad = int(25)
+table_name = tabla_de_interes
+
+
+
+def metereologia_dinamizada(event, context):
+
+    data = {
+
+            "NOMBRE" : tu_nombre, 
+            "EDAD": edad
+    }
+
+    data = pd.DataFrame(data, index = [0])
+
+    insert_into(data, tabla_de_interes)
+
