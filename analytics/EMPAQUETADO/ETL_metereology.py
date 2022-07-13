@@ -8,8 +8,8 @@ coordenadas = (39.55678333333333, -3.1920416666666664) #https://www.vercalendari
 
 API_AEMET = 'eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJraWdsZXNpYXNiYXJhaWJhckBzdHVkZW50LmVhZS5lcyIsImp0aSI6ImY4YWQ5OGRmLTkzMjQtNDEzMi05NjY3LTdjY2E2Nzc3Mzc0NiIsImlzcyI6IkFFTUVUIiwiaWF0IjoxNjQyOTYzODc0LCJ1c2VySWQiOiJmOGFkOThkZi05MzI0LTQxMzItOTY2Ny03Y2NhNjc3NzM3NDYiLCJyb2xlIjoiIn0.en7xw4HHYaZ4oW8qooX6wGG3yn1Tv3OzFfnhrZac6vo'
 API_GOOGLE = 'AIzaSyD7zvwwj8-4JS2XZq0n8bLb9t2cSqStx84'
-fecha_ini = '2021-01-01'
-fecha_fin = '2021-02-01'
+fecha_ini = '2009-01-01'
+fecha_fin = '2009-02-01'
 
 
 #fecha_ini =  '2021-01-01', fecha_fin = '2022-03-01'
