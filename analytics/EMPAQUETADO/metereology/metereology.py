@@ -209,6 +209,14 @@ class mi_metereologia:
           
           self.provincia = 'CASTILLA-LA MANCHA'
 
+        if self.provincia == 'VALENCIAN COMMUNITY':
+          
+          self.provincia = 'VALENCIA'
+
+        if self.provincia == 'CASTELLÓN':
+          
+          self.provincia = 'CASTELLON'
+
         print(estaciones['provincia'].unique())
         
 
