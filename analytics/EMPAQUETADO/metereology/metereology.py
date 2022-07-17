@@ -393,13 +393,13 @@ class mi_metereologia:
         return self.estaciones_provincia
 
 
-    def ordenar_distancias(self, estaciones_provincia):
+    def ordenar_distancias(self):
 
 
         
         #Ordenamos por distancia más cercana
 
-        estaciones_provincia = estaciones_provincia.sort_values('distancia')
+        estaciones_provincia = self.estaciones_provincia.sort_values('distancia')
 
         #Renombaramos los campos y nos quedamos con las columnas que queremos
 
@@ -410,10 +410,10 @@ class mi_metereologia:
 
         #nos quedamos con la esatacion mas cercana
 
-        estacion = estaciones_provincia.iloc[0,0]
+        self.estacion = estaciones_provincia.iloc[0,0]
 
 
-        return estacion
+        return self.estacion
        
        
        # return self.estaciones
@@ -421,7 +421,7 @@ class mi_metereologia:
     
     #vamos a ver cuales son mis estaciones mas cercanas
 
-    def mis_estaciones_mas_cercanas(self, estaciones_provincia, estacion):
+    def mis_estaciones_mas_cercanas(self):
         
     #def mis_estaciones_mas_cercanas(self, estaciones_provincia, estacion):
 
@@ -429,7 +429,7 @@ class mi_metereologia:
         #print(estaciones_provincia)
 
 
-        codigo_estacion_mas_cercana = estaciones_provincia[estaciones_provincia['Estacion'] == estacion][['indicativo']]
+        codigo_estacion_mas_cercana = self.estaciones_provincia[self.estaciones_provincia['Estacion'] == self.estacion][['indicativo']]
 
         #codigo_estacion_mas_cercana = estaciones_provincia[estaciones_provincia['Estacion'] == self.estacion][['indicativo']]
 
@@ -784,4 +784,3 @@ class mi_metereologia:
 
 
         return información_base_cercana
-

@@ -58,9 +58,9 @@ mis_estaciones_distancias_brutas = mi_metereologia_clase.distancias()
 #Falta sacar la estacion más cercana
 
 
-estaciones_ordenadas = mi_metereologia_clase.ordenar_distancias(mis_estaciones_distancias_brutas)
+estaciones_ordenadas = mi_metereologia_clase.ordenar_distancias()
 
-estacion_mas_cercana_codigo = mi_metereologia_clase.mis_estaciones_mas_cercanas(estaciones_provincia, estaciones_ordenadas)
+estacion_mas_cercana_codigo = mi_metereologia_clase.mis_estaciones_mas_cercanas()
 
 
 #print(estacion_mas_cercana_codigo)
